@@ -1,11 +1,30 @@
+# Projektas Liana: ESP8266 / WS2812 šviesos animacija
+Autorius [Vasil-Pahomov](https://github.com/Vasil-Pahomov/Liana)
+## Nuo ko pradėti
+1. Prijunkite ESP, LED juostą (girliandą) ir maitinimo šaltinį, kaip parodyta toliau ([Pajungimas](https://github.com/Witska/Liana-LT#pajungimas))
+2. Įkelkite failus: [programos failą](https://github.com/Witska/Liana-LT/blob/master/bin/firmware.bin) 0x000000 ir [SPIFFS failą](https://github.com/Witska/Liana-LT/blob/master/bin/spiffs.bin) 0x100000. Turėtumėte pakoreguoti plokštės nustatymus, ypač COM prievado numerį, atminties dydį ir SPI režimą. Naudojau oficialius įrankius Flash download tools (juos galite rasti [čia](https://www.espressif.com/en/support/download/other-tools)), o mano veikiantys NodeMCU plokštės nustatymai atrodo taip:
+
+![Flash download tools nustatymai](https://github.com/Witska/Liana-LT/blob/master/pics/Download_tool_settings.png)
+
+3. Prisijunkite prie Liana belaidžio tinklo ir bakstelėkite iškylantį autorizacijos skydelį. Būsite nukreipti tiesiai į Liana naršyklės sąsają. Jei skydelis neatsidarė, naršyklėje eikite į http://192.168.4.1/. Čia galite sukonfigūruoti ryšį su namų Wi-Fi tinklu.
+4. Prijungę Lianą prie Wi-Fi, atidarykite naršyklėje http://liana.local iš bet kurio iOS, MacOS ar Windows įrenginio, esančio tame pačiame tinkle. Tai neveikia su Android, tačiau turėtumėte rasti Liana IP adresą (pvz., maršrutizatoriaus administratoriaus pulte, matydami Liana COM prievado išvestį po paleidimo arba naudodami mDNS klientą, pvz., [.Local Finder](https://play.google.com/store/apps/details?id=com.dokoden.dotlocalfinder)). Tada Android naršyklėje įveskite http://<IP_ADDRESS>.
+
+## Pajungimas
+![Pajungimo schema](https://github.com/Witska/Liana-LT/blob/master/pics/Diagram.png)
+
+
+
+
+
 # Проект Liana: световая анимация на ESP8266/WS2812 
 ## Как быстро запустить
 1. Подключите плату ESP, светодиодную ленту (гирлянду) и источник питания как показано ниже (подключение)
-1. Загрузите в ESP файлы: [основную прошивку](https://github.com/Vasil-Pahomov/Liana/raw/master/bin/firmware.bin) по адресу 0x000000 и [файловую систему](https://github.com/Vasil-Pahomov/Liana/raw/master/bin/spiffs.bin) по адресу 0x100000. Нужно соответствующим образом выставить настройки: номер COM-порта, размер flash-памяти, режим SPI. Я использовал официальный инструмент Flash download tools (скачать можно [здесь](https://www.espressif.com/en/support/download/other-tools)), и работающие настройки для платы NodeMCU выглядили так:
+2. Загрузите в ESP файлы: [основную прошивку](https://github.com/Vasil-Pahomov/Liana/raw/master/bin/firmware.bin) по адресу 0x000000 и [файловую систему](https://github.com/Vasil-Pahomov/Liana/raw/master/bin/spiffs.bin) по адресу 0x100000. Нужно соответствующим образом выставить настройки: номер COM-порта, размер flash-памяти, режим SPI. Я использовал официальный инструмент Flash download tools (скачать можно [здесь](https://www.espressif.com/en/support/download/other-tools)), и работающие настройки для платы NodeMCU выглядили так:
+
 ![Настройки Flash download tools для NodeMCU](https://raw.githubusercontent.com/Vasil-Pahomov/Liana/master/pics/Download_tool_settings.png)
 
-1. После запуска подключитесь к беспроводной сети под названием "Liana" и нажмите на всплывающую панель с требованием авторизации - откроется web-интерфейс Liana. Если панель не появляется, перейдите по адресу http://192.168.4.1/ в браузере. В интерфейсе можно подключиться к домашней сети WiFi.
-1. После подключения Liana к сети WiFi, откройте "http://liana.local" в браузере на устройстве с iOS, MacOS or Windows, находящимися в той же сети. 
+3. После запуска подключитесь к беспроводной сети под названием "Liana" и нажмите на всплывающую панель с требованием авторизации - откроется web-интерфейс Liana. Если панель не появляется, перейдите по адресу http://192.168.4.1/ в браузере. В интерфейсе можно подключиться к домашней сети WiFi.
+4. После подключения Liana к сети WiFi, откройте "http://liana.local" в браузере на устройстве с iOS, MacOS or Windows, находящимися в той же сети. 
 К большому сожалению, это не работает для Android - нужно знать IP-адрес Liana (в админской консоли роутера, посмотрев вывод Liana в COM-порт после старта, либо используя клиент mDNS вроде https://play.google.com/store/apps/details?id=com.dokoden.dotlocalfinder). Потом подключайтесь браузером к "http://<IP_ADDRESS>".
 
 ## Подключение
