@@ -12,9 +12,30 @@ Autorius [Vasil-Pahomov](https://github.com/Vasil-Pahomov/Liana)
 ## Pajungimas
 ![Pajungimo schema](https://github.com/Witska/Liana-LT/blob/master/pics/Diagram.png)
 
+NodeMCU plokštė parodyta kaip pavyzdys, tačiau galima naudoti bet kurią plokštę su ESP8266. Atminkite, kad kitoms plokštėms gali tekti perkompiliuoti kodą! Jūs užmaitinate plokštę, užmaitinate WS2812 grandinę ir prijungiate ESP GPIO2 išvestį prie pirmosios WS2812 grandinės duomenų įvesties, tai viskas. Įsitikinkite, kad naudojate tinkamą maitinimo šaltinį, dauguma ESP8266 plokščių turi įtampos stabilizatorių, bet plikom ESP8266 reikia 3,3V, o WS2812 juostoms reikia 5V arba 12V. Galite naudoti skirtingus ESP ir juostos maitinimo šaltinius, tada sujungiate minusus kartu. Be to, įsitikinkite, kad jūsų šviesos diodams ir ESP yra pakankamai galios, per silpnas maitinimo šaltinis gali sukelti nenumatytą šalutinį poveikį, pvz., atsitiktinį paleidimą iš naujo, netinkamą spalvą ir t. t. ESP plokštei paprastai pakanka 500mA. Kiekvienas WS2812 šviesos diodas sunaudoja iki 60mA.
 
+## Kaip kompiliuoti
+1. Šiuo metu projektas sukurtas naudojant [PlatformIO](https://platformio.org/) ir [Visual Studio Code](https://code.visualstudio.com/).
+1. PlatformIO ir Visual Studio Code nustatymas aprašytas [čia](https://docs.platformio.org/en/latest/integration/ide/vscode.html).
+1. Visos bibliotekos priklausomybės yra išvardytos platformio.ini faile ir turėtų būti atsisiunčiamos automatiškai.
+1. Būtinai nustatykite plokštės nustatymus platformio.ini faile (bent COM prievadą).
+1. Nepamirškite įkelti SPIFFS atvaizdą (paleiskite užduotį "Upload Filesystem Image")
 
+## Modulio valdymas
+Šiuo metu, kai modulis yra įjungiamas, jis pradeda leisti animacijas atsitiktine tvarka, keičiasi kas 30 sekundžių. Naudodami naršyklę galite rankiniu būdu valdyti animacijas ir paletes, taip pat galite įjungti ir išjungti girliandą. Kol atidarytas pagrindinis sąsajos puslapis, automatinio efektų pakeitimo nėra! Ilgai paspaudę efekto arba paletės mygtuką, galite pašalinti juos iš atsitiktinio pasirinkimo, kai uždaroma žiniatinklio sąsaja.
+Sąrašo pabaigoje yra specialus efektas "Magija"(Firefox naršyklė), skirtas Kalėdų eglutėms. Pasirinkę, galite valdyti šviesą pakreipdami įrenginį, kuriame atidarytas pagrindinis sąsajos puslapis. Pavyzdys parodytas šiame vaizdo įraše: https://youtu.be/ZXqNeq31DUs. Pakreipiate prietaisą, kad pakeistumėte "taikinio tašką", sukite jį, kad pakeistumėte spalvą, ir pastumkite, kad paryškintumėte.
+SVARBU: šis efektas nerodomas, jei įrenginio naršyklė neleidžia pasiekti jutiklių (https://w3c.github.io/deviceorientation/#security-and-privacy). Deja, apribojimas taikomas visoms ne HTTPS svetainėms. Kadangi nustatyti tinkamą HTTPS vietiniuose įrenginiuose yra sudėtinga, vienintelis būdas, kurį žinau, kad efektas veiktų, yra naudoti "Chrome" naršyklę, įjungti parinktį `--unsafely-treat-insecure-origin-as-secure` chrome://flags puslapyje ir šioje parinktyje nurodykite modulio IP adresą.
 
+## Valdymas per MQTT
+Ryšys su MQTT brokeriu konfigūruojamas per žiniatinklio sąsają. Liana dirba tik kaip MQTT klientė. Komandos siunčiamos paprastu tekstu. Šios komandos pateiktos žemiau. Išraiškos riestiniuose skliaustuose {XXX} turi būti pakeistos atitinkamomis reikšmėmis. Komandų, kuriose yra parametrų, pabaigoje rekomenduojama pridėti tarpą arba CR/LF simbolius.
+1. on - įjungti.
+1. off - išjungtu.
+1. palette={paletės numeris} - nustatyti paletę, numeracija prasideda nuo 0.
+1. animation={animacijos numeris} - nustatyti animaciją, numeracija prasideda nuo 0.
+1. duration={sekundės} - nustato esamo efekto (paletės/animacijos) trukmę, atsitiktinis ciklas prasideda praėjus nurodytam laikui.
+1. brightness={ryškumas} - nustato ryškumą (0...255).
+1. brightness up - padidina ryškumą.
+1. brightness down - sumažina ryškumą.
 
 # Проект Liana: световая анимация на ESP8266/WS2812 
 ## Как быстро запустить
