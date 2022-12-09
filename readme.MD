@@ -36,7 +36,7 @@ Ryšys su MQTT brokeriu konfigūruojamas per žiniatinklio sąsają. Liana dirba
 1. brightness={ryškumas} - nustato ryškumą (0...255).
 1. brightness up - padidina ryškumą.
 1. brightness down - sumažina ryškumą.
-
+##
 # Проект Liana: световая анимация на ESP8266/WS2812 
 ## Как быстро запустить
 1. Подключите плату ESP, светодиодную ленту (гирлянду) и источник питания как показано ниже (подключение)
