@@ -29,7 +29,7 @@ SVARBU: šis efektas nerodomas, jei įrenginio naršyklė neleidžia pasiekti ju
 ## Valdymas per MQTT
 Ryšys su MQTT brokeriu konfigūruojamas per žiniatinklio sąsają. Liana dirba tik kaip MQTT klientė. Komandos siunčiamos paprastu tekstu. Šios komandos pateiktos žemiau. Išraiškos riestiniuose skliaustuose {XXX} turi būti pakeistos atitinkamomis reikšmėmis. Komandų, kuriose yra parametrų, pabaigoje rekomenduojama pridėti tarpą arba CR/LF simbolius.
 1. on - įjungti.
-1. off - išjungtu.
+1. off - išjungti.
 1. palette={paletės numeris} - nustatyti paletę, numeracija prasideda nuo 0.
 1. animation={animacijos numeris} - nustatyti animaciją, numeracija prasideda nuo 0.
 1. duration={sekundės} - nustato esamo efekto (paletės/animacijos) trukmę, atsitiktinis ciklas prasideda praėjus nurodytam laikui.
